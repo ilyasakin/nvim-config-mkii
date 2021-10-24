@@ -1,16 +1,14 @@
-{                                                                                                                                               
-  "prettier.requireConfig": true,                                                                                                               
-  "tslint.enable": true,                                                                                                                        
-  "tslint.autoFixOnSave": true,                                                                                                                 
-  "javascript.suggest.autoImports": false,                                                                                                      
-  "coc.preferences.formatOnSaveFiletypes": [                                                                                                    
-    "css",                                                                                                                                      
-   "markdown",                                                                                                                                 
-    "Markdown",                                                                                                                                 
-    "javascript",                                                                                                                               
-    "javascriptreact",                                                                                                                          
-    "typescript",                                                                                                                               
-    "typescriptreact",                                                                                                                          
-    "json"                                                                                                                                      
-  ]                                                                                                                                             
-}      
+{
+  "prettier.requireConfig": true,
+  "javascript.suggest.autoImports": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json"
+  ]
+}
