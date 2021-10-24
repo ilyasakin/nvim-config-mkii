@@ -22,5 +22,9 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'lukas-reineke/indent-blankline.nvim'
 
+Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'akinsho/bufferline.nvim'
+
 call plug#end()
 

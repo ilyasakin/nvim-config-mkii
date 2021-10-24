@@ -5,6 +5,10 @@ set hidden
 set nobackup
 set nowritebackup
 
+set termguicolors
+
+set mouse+=a
+
 set cmdheight   =2
 
 set updatetime  =300
@@ -30,3 +34,8 @@ nnoremap <A-l> <C-w>l
 inoremap <C-v> <C-o>"+gP
 " Ctrl + tab switch tab
 nnoremap <C-Tab> :bn<CR>
+
+lua << EOF
+require("bufferline").setup{}
+EOF
+
