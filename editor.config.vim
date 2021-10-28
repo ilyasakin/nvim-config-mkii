@@ -11,6 +11,8 @@ set mouse+=a
 
 set cmdheight   =2
 
+set number
+
 set updatetime  =300
 
 set clipboard   =unnamedplus
