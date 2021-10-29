@@ -28,12 +28,23 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'akinsho/bufferline.nvim', 
+    'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require'bufferline'.setup{} end
+    config = function() require'bufferline'.setup{
+      options = {
+        offsets = {
+          {
+            filetype = "NvimTree",
+            text = "File Explorer",
+            highlight = "Directory",
+            text_align = "left"
+          }
+        }
+      }
+    } end
   }
 
-  use 'vim-airline/vim-airline' 
+  use 'vim-airline/vim-airline'
 
   use 'dracula/vim'
 
