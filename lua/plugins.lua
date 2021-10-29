@@ -7,6 +7,18 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use 'neovim/nvim-lspconfig'
+
+  use 'williamboman/nvim-lsp-installer'
+
+  use 'hrsh7th/nvim-cmp'
+
+  use 'hrsh7th/cmp-nvim-lsp'
+
+  use 'saadparwaiz1/cmp_luasnip'
+
+  use 'L3MON4D3/LuaSnip'
+
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',

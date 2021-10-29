@@ -15,6 +15,8 @@ exec('set softtabstop =2')
 exec('set shiftwidth =2')
 exec('set expandtab')
 
+vim.o.completeopt = "menuone,noselect"
+
 exec('tnoremap <A-h> <C-\\><C-n><C-w>h')
 exec('tnoremap <A-j> <C-\\><C-n><C-w>j')
 exec('tnoremap <A-k> <C-\\><C-n><C-w>k')
