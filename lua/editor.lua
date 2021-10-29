@@ -1,20 +1,17 @@
 local exec = vim.api.nvim_command
 
-exec('set encoding =utf-8')
-exec('set number')
-exec('set hidden')
-exec('set nobackup')
-exec('set nowritebackup')
-exec('set termguicolors')
-exec('set mouse +=a')
-exec('set cmdheight =2')
-exec('set updatetime =300')
-exec('set clipboard =unnamedplus')
-exec('set tabstop =2')
-exec('set softtabstop =2')
-exec('set shiftwidth =2')
-exec('set expandtab')
-
+vim.o.encoding = "utf-8"
+vim.wo.number = true
+vim.o.hidden = true
+vim.o.termguicolors = true
+vim.o.mouse = "a"
+vim.o.cmdheight = 1
+vim.o.updatetime = 300
+vim.o.clipboard = "unnamedplus"
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
 vim.o.completeopt = "menuone,noselect"
 
 exec('tnoremap <A-h> <C-\\><C-n><C-w>h')
