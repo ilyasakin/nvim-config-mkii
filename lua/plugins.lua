@@ -9,6 +9,8 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use 'tjdevries/astronauta.nvim'
+
   use 'neovim/nvim-lspconfig'
 
   use 'williamboman/nvim-lsp-installer'
@@ -59,6 +61,11 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+  }
+
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
   if packer_bootstrap then
