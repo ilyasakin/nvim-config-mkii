@@ -68,6 +68,14 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  use({ "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+        require("null-ls").config({})
+        require("lspconfig")["null-ls"].setup({})
+    end,
+    requires = {"nvim-lua/plenary.nvim", "neovim/nvim-lspconfig"}
+  })
+
   if packer_bootstrap then
     require('packer').sync()
   end
