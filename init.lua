@@ -1,5 +1,5 @@
-require 'plugins'
 require 'editor'
+require 'plugins'
 require 'theme'
 
 require 'config/astronauta'
@@ -8,3 +8,4 @@ require 'config/cmp'
 require 'config/treesitter'
 require 'config/telescope'
 require 'config/null-ls'
+require 'config/lspsaga'

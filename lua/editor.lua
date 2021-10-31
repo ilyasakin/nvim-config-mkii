@@ -1,5 +1,6 @@
 local exec = vim.api.nvim_command
 
+vim.g.mapleader = '\\'
 vim.o.encoding = 'utf-8'
 vim.wo.number = true
 vim.o.hidden = true
