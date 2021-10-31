@@ -1,2 +1,1 @@
-vim.cmd [[runtime plugin/astronauta.vim]]
-
+vim.cmd([[runtime plugin/astronauta.vim]])
