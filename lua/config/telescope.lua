@@ -2,8 +2,8 @@
 
 local nnoremap = vim.keymap.nnoremap
 
-nnoremap({
-	"<C-p>",
-	require("telescope.builtin").find_files,
-	{ silent = true },
-})
+nnoremap {
+  '<C-p>',
+  require('telescope.builtin').find_files,
+  { silent = true },
+}
