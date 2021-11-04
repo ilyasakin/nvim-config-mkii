@@ -65,6 +65,8 @@ return require('packer').startup(function(use)
 
   use 'dracula/vim'
 
+  use 'svermeulen/vim-cutlass'
+
   use 'airblade/vim-gitgutter'
 
   use 'lukas-reineke/indent-blankline.nvim'

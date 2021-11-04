@@ -15,6 +15,7 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.completeopt = 'menuone,noselect'
 
+
 exec 'tnoremap <A-h> <C-\\><C-n><C-w>h'
 exec 'tnoremap <A-j> <C-\\><C-n><C-w>j'
 exec 'tnoremap <A-k> <C-\\><C-n><C-w>k'
