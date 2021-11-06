@@ -131,6 +131,7 @@ local on_attach = function(_, bufnr)
     options
   )
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ autocmd BufWritePre <buffer> Format ]]
 end
 
 lsp_installer.on_server_ready(function(server)
@@ -167,7 +168,7 @@ lsp_installer.on_server_ready(function(server)
         eslint_enable_diagnostics = true,
         eslint_enable_code_actions = true,
         enable_formatting = true,
-        formatter = 'prettier',
+        formatter = 'prettierd',
       }
       ts_utils.setup_client(client)
       buf_map(bufnr, 'n', 'gs', ':TSLspOrganize<CR>')
