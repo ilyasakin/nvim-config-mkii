@@ -153,7 +153,6 @@ local ensure_installed = {
   'clangd',
   'bashls',
   'cssls',
-  'denols',
   'yamlls',
   'gopls',
   'diagnosticls',
@@ -166,9 +165,7 @@ local ensure_installed = {
 }
 
 for _, server in ipairs(ensure_installed) do
-  local _, requested_server = lsp_installer_servers.get_server(
-    server
-  )
+  local _, requested_server = lsp_installer_servers.get_server(server)
 
   if not requested_server:is_installed() then
     -- Queue the server to be installed
