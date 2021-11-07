@@ -95,7 +95,13 @@ local on_attach = function(_, bufnr)
     '<cmd>lua vim.lsp.buf.code_action()<CR>',
     options
   )
-  -- vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(
+    bufnr,
+    'v',
+    '<leader>ca',
+    '<cmd>lua vim.lsp.buf.range_code_action()<CR>',
+    options
+  )
   vim.api.nvim_buf_set_keymap(
     bufnr,
     'n',
@@ -141,7 +147,6 @@ local ensure_installed = {
   'rust_analyzer',
   'pylsp',
   'html',
-  'eslint',
   'graphql',
   'vuels',
   'jsonls',
@@ -160,8 +165,8 @@ local ensure_installed = {
   'angularls',
 }
 
-for i, server in ipairs(ensure_installed) do
-  local server_available, requested_server = lsp_installer_servers.get_server(
+for _, server in ipairs(ensure_installed) do
+  local _, requested_server = lsp_installer_servers.get_server(
     server
   )
 
