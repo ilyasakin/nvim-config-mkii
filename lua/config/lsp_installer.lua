@@ -1,4 +1,5 @@
 local lsp_installer = require 'nvim-lsp-installer'
+local lsp_installer_servers = require 'nvim-lsp-installer.servers'
 
 local buf_map = function(bufnr, mode, lhs, rhs, opts)
   vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
@@ -132,6 +133,42 @@ local on_attach = function(_, bufnr)
   )
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
   vim.cmd [[ autocmd BufWritePre <buffer> Format ]]
+end
+
+local ensure_installed = {
+  'tsserver',
+  'sumneko_lua',
+  'rust_analyzer',
+  'pylsp',
+  'html',
+  'eslint',
+  'graphql',
+  'vuels',
+  'jsonls',
+  'clangd',
+  'bashls',
+  'cssls',
+  'denols',
+  'yamlls',
+  'gopls',
+  'diagnosticls',
+  'cmake',
+  'dockerls',
+  'sqlls',
+  'prismals',
+  'vimls',
+  'angularls',
+}
+
+for i, server in ipairs(ensure_installed) do
+  local server_available, requested_server = lsp_installer_servers.get_server(
+    server
+  )
+
+  if not requested_server:is_installed() then
+    -- Queue the server to be installed
+    requested_server:install()
+  end
 end
 
 lsp_installer.on_server_ready(function(server)
