@@ -137,6 +137,13 @@ local on_attach = function(_, bufnr)
     [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]],
     options
   )
+  vim.api.nvim_buf_set_keymap(
+    bufnr,
+    'v',
+    'f',
+    [[<cmd>lua vim.lsp.buf.range_formatting()<CR>]],
+    options
+  )
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
   vim.cmd [[ autocmd BufWritePre <buffer> Format ]]
 end
@@ -161,7 +168,6 @@ local ensure_installed = {
   'sqlls',
   'prismals',
   'vimls',
-  'angularls',
 }
 
 for _, server in ipairs(ensure_installed) do
@@ -202,6 +208,7 @@ lsp_installer.on_server_ready(function(server)
       client.resolved_capabilities.document_formatting = false
       client.resolved_capabilities.document_range_formatting = false
       local ts_utils = require 'nvim-lsp-ts-utils'
+
       ts_utils.setup {
         eslint_bin = 'eslint_d',
         eslint_enable_diagnostics = true,
@@ -209,11 +216,29 @@ lsp_installer.on_server_ready(function(server)
         enable_formatting = true,
         formatter = 'prettierd',
       }
+
       ts_utils.setup_client(client)
       buf_map(bufnr, 'n', 'gs', ':TSLspOrganize<CR>')
       buf_map(bufnr, 'n', 'gi', ':TSLspRenameFile<CR>')
       buf_map(bufnr, 'n', 'go', ':TSLspImportAll<CR>')
       on_attach(client, bufnr)
+    end
+  end
+
+  if server.name == 'angularls' then
+    local cmd = {
+      server.root_dir .. '/node_modules/.bin/ngserver',
+      '--stdio',
+      '--tsProbeLocations',
+      server.root_dir,
+      '--ngProbeLocations',
+      server.root_dir,
+    }
+
+    opts.on_attach = on_attach
+    opts.cmd = cmd
+    opts.on_new_config = function(new_config)
+      new_config.cmd = cmd
     end
   end
 
