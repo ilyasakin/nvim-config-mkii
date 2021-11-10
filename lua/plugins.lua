@@ -97,6 +97,22 @@ return require('packer').startup(function(use)
     require = { 'neovim/nvim-lspconfig', 'jose-elias-alvarez/null-ls.nvim' },
   }
 
+  use {
+    'folke/which-key.nvim',
+    config = function()
+      require('which-key').setup {}
+    end,
+  }
+
+  use {
+    'tveskag/nvim-blame-line',
+    config = function()
+      vim.cmd [[
+        autocmd BufEnter * EnableBlameLine
+      ]]
+    end,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end
