@@ -180,8 +180,13 @@ for _, server in ipairs(ensure_installed) do
 end
 
 lsp_installer.on_server_ready(function(server)
+  -- nvim-cmp supports additional completion capabilities
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
   local opts = {
     on_attach = on_attach,
+    capabilities = capabilities,
   }
 
   if server.name == 'sumneko_lua' then
