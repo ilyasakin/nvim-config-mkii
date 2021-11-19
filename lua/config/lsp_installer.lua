@@ -230,23 +230,6 @@ lsp_installer.on_server_ready(function(server)
     end
   end
 
-  if server.name == 'angularls' then
-    local cmd = {
-      server.root_dir .. '/node_modules/.bin/ngserver',
-      '--stdio',
-      '--tsProbeLocations',
-      server.root_dir,
-      '--ngProbeLocations',
-      server.root_dir,
-    }
-
-    opts.on_attach = on_attach
-    opts.cmd = cmd
-    opts.on_new_config = function(new_config)
-      new_config.cmd = cmd
-    end
-  end
-
   -- (optional) Customize the options passed to the server
   -- if server.name == "tsserver" then
   --     opts.root_dir = function() ... end
