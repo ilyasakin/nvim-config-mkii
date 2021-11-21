@@ -145,7 +145,6 @@ local on_attach = function(_, bufnr)
     options
   )
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
-  vim.cmd [[ autocmd BufWritePre <buffer> Format ]]
 end
 
 local ensure_installed = {
