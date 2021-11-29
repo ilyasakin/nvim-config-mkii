@@ -1,6 +1,10 @@
 local exec = vim.api.nvim_command
 
-vim.g.mapleader = '<space>'
+vim.cmd [[
+  nnoremap <SPACE> <Nop>
+  let mapleader = "\<Space>"
+]]
+
 vim.o.encoding = 'utf-8'
 vim.wo.number = true
 vim.o.hidden = true
