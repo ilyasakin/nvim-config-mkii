@@ -14,6 +14,7 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.completeopt = 'menuone,noselect'
+vim.opt.splitbelow = true;
 
 
 exec 'tnoremap <A-h> <C-\\><C-n><C-w>h'
