@@ -135,20 +135,7 @@ return require('packer').startup(function(use)
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require('bufferline').setup {
-        options = {
-          diagnostics = 'nvim_lsp',
-          show_close_icon = false,
-          offsets = {
-            {
-              filetype = 'NvimTree',
-              text = 'File Explorer',
-              highlight = 'Directory',
-              text_align = 'left',
-            },
-          },
-        },
-      }
+      require('config.bufferline').setup()
     end,
   }
 
