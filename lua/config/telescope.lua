@@ -1,9 +1,15 @@
--- vim.api.nvim_set_keymap('n', '<Leader>ff', [[<cmd> lua require('telescope_builtin').find_files()<CR>]], { noremap = true })
+local M = {}
 
-local nnoremap = vim.keymap.nnoremap
+M.post = function()
+  -- vim.api.nvim_set_keymap('n', '<Leader>ff', [[<cmd> lua require('telescope_builtin').find_files()<CR>]], { noremap = true })
 
-nnoremap {
-  '<C-p>',
-  require('telescope.builtin').find_files,
-  { silent = true },
-}
+  local nnoremap = vim.keymap.nnoremap
+
+  nnoremap {
+    '<C-p>',
+    require('telescope.builtin').find_files,
+    { silent = true },
+  }
+end
+
+return M

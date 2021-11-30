@@ -36,8 +36,8 @@ return require('packer').startup(function(use)
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require 'config.nvim-tree'.setup()
-      require 'config.nvim-tree'.post()
+      require('config.nvim-tree').setup()
+      require('config.nvim-tree').post()
     end,
   }
 
@@ -57,7 +57,12 @@ return require('packer').startup(function(use)
 
   use 'airblade/vim-gitgutter'
 
-  use 'lukas-reineke/indent-blankline.nvim'
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('config.indentline').post()
+    end,
+  }
 
   use 'jiangmiao/auto-pairs'
 
@@ -69,6 +74,9 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
+    config = function()
+      require('config.telescope').post()
+    end,
   }
 
   use {
