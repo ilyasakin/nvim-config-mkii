@@ -111,7 +111,12 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use 'glepnir/dashboard-nvim'
+  use {
+    'glepnir/dashboard-nvim',
+    config = function()
+      require('config.dashboard-nvim').post()
+    end,
+  }
 
   if packer_bootstrap then
     require('packer').sync()

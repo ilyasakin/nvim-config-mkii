@@ -1,6 +1,8 @@
+local M = {}
 
--- TODO: Modernize
-vim.cmd [[
+M.post = function()
+  -- TODO: Modernize
+  vim.cmd [[
 let g:dashboard_default_executive ='telescope'
 let g:dashboard_custom_header =<< trim END
     ___..._           _...___
@@ -19,6 +21,6 @@ let g:dashboard_custom_header =<< trim END
               '-'     `"
 END
 ]]
+end
 
-
-
+return M
