@@ -138,6 +138,7 @@ return require('packer').startup(function(use)
       require('bufferline').setup {
         options = {
           diagnostics = 'nvim_lsp',
+          show_close_icon = false,
           offsets = {
             {
               filetype = 'NvimTree',
