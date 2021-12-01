@@ -49,7 +49,15 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use 'vim-airline/vim-airline'
+  -- use 'vim-airline/vim-airline'
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function()
+      require('config.lualine').setup()
+    end,
+  }
 
   use 'dracula/vim'
 
