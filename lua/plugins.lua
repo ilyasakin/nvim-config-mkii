@@ -109,9 +109,9 @@ return require('packer').startup(function(use)
 
   use {
     'jose-elias-alvarez/null-ls.nvim',
+    after = 'nvim-cmp',
     config = function()
-      require('null-ls').config {}
-      require('lspconfig')['null-ls'].setup {}
+      require('config.null-ls').setup()
     end,
     requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
   }
