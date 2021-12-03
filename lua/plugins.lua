@@ -18,11 +18,22 @@ return require('packer').startup(function(use)
 
   use { 'tjdevries/astronauta.nvim' }
 
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('config.lsp').post()
+    end,
+  }
 
   use 'williamboman/nvim-lsp-installer'
 
-  use 'hrsh7th/nvim-cmp'
+  use {
+    'hrsh7th/nvim-cmp',
+    after = 'nvim-lspconfig',
+    config = function()
+      require('config.cmp').setup()
+    end,
+  }
 
   use 'hrsh7th/cmp-nvim-lsp'
 
