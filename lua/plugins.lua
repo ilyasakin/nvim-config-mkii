@@ -25,7 +25,13 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use 'williamboman/nvim-lsp-installer'
+  use {
+    'williamboman/nvim-lsp-installer',
+    after = 'nvim-lspconfig',
+    config = function()
+      require('config.lsp_installer').setup()
+    end,
+  }
 
   use {
     'hrsh7th/nvim-cmp',
@@ -41,7 +47,13 @@ return require('packer').startup(function(use)
 
   use 'L3MON4D3/LuaSnip'
 
-  use { 'glepnir/lspsaga.nvim' }
+  use {
+    'glepnir/lspsaga.nvim',
+    after = 'nvim-lspconfig',
+    config = function()
+      require('config.lspsaga').post()
+    end,
+  }
 
   use {
     'kyazdani42/nvim-tree.lua',
