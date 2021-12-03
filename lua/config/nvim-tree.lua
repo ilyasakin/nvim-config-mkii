@@ -1,9 +1,12 @@
 local M = {}
 
 M.post = function()
-  vim.cmd [[
-    nnoremap <silent> <C-b> :NvimTreeToggle<CR>
-  ]]
+  vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>fm',
+    ':NvimTreeToggle<CR>',
+    { noremap = true, silent = true }
+  )
 
   local timer = vim.loop.new_timer()
   local refresh_tree = require('nvim-tree.lib').refresh_tree
