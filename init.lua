@@ -1,8 +1,9 @@
+vim.cmd [[runtime plugin/astronauta.vim]]
+
 require 'editor'
 require 'plugins'
 require 'theme'
 
-require 'config/astronauta'
 require 'config/lsp'
 require 'config/cmp'
 require 'config/treesitter'

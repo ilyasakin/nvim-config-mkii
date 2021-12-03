@@ -16,7 +16,7 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'tjdevries/astronauta.nvim'
+  use { 'tjdevries/astronauta.nvim' }
 
   use 'neovim/nvim-lspconfig'
 
@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
 
   use 'L3MON4D3/LuaSnip'
 
-  use 'glepnir/lspsaga.nvim'
+  use { 'glepnir/lspsaga.nvim' }
 
   use {
     'kyazdani42/nvim-tree.lua',
