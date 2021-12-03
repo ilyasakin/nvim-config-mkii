@@ -61,7 +61,12 @@ return require('packer').startup(function(use)
 
   use 'dracula/vim'
 
-  use 'svermeulen/vim-cutlass'
+  use {
+    'svermeulen/vim-cutlass',
+    config = function()
+      require('config.cutlass').post()
+    end,
+  }
 
   use 'airblade/vim-gitgutter'
 
