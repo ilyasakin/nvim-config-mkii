@@ -8,6 +8,7 @@ M.post = function()
     { noremap = true, silent = true }
   )
 
+  local view = require 'nvim-tree.view'
   local timer = vim.loop.new_timer()
   local refresh_tree = require('nvim-tree.lib').refresh_tree
 
@@ -16,6 +17,10 @@ M.post = function()
       1000,
       1000,
       vim.schedule_wrap(function()
+        if view.win_open() == false then
+          return
+        end
+
         refresh_tree()
       end)
     )
