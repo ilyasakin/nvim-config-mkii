@@ -8,7 +8,7 @@ end
 
 M.post = function()
   which_key.register({
-    f = { name = 'file' },
+    f = { name = 'file', t = 'File Tree' },
     e = { name = 'editor' },
     h = { name = 'git hunk' },
     s = { name = 'session' },

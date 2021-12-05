@@ -3,7 +3,7 @@ local M = {}
 M.post = function()
   vim.api.nvim_set_keymap(
     'n',
-    '<Leader>fm',
+    '<Leader>ft',
     ':NvimTreeToggle<CR>',
     { noremap = true, silent = true }
   )
