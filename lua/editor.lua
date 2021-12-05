@@ -34,5 +34,3 @@ exec 'nnoremap <A-l> <C-w>l'
 exec 'inoremap <C-v> <C-o>'
 
 exec 'nnoremap <C-Tab> :bn<CR>'
-
-exec 'nnoremap <silent> <C-b> :NvimTreeToggle<CR>'

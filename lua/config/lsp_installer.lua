@@ -66,13 +66,6 @@ M.setup = function()
     vim.api.nvim_buf_set_keymap(
       bufnr,
       'n',
-      '<leader>wl',
-      '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
       '<leader>D',
       '<cmd>lua vim.lsp.buf.type_definition()<CR>',
       options

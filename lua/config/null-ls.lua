@@ -11,9 +11,6 @@ M.setup = function()
   null_ls.config {
     -- you must define at least one source for the plugin to work
     sources = {
-      diagnostics.eslint.with {
-        command = 'eslint_d',
-      },
       formatting.prettierd.with {
         filetypes = {
           'typescriptreact',

@@ -1,7 +1,19 @@
 local M = {}
 
+local which_key = require 'which-key'
+
 M.setup = function()
-  require('which-key').setup {}
+  which_key.setup {}
+end
+
+M.post = function()
+  which_key.register({
+    f = { name = 'file' },
+    e = { name = 'editor' },
+    h = { name = 'git hunk' },
+    s = { name = 'session' },
+    c = { name = 'code actions', a = 'get code actions' },
+  }, { prefix = '<leader>' })
 end
 
 return M
