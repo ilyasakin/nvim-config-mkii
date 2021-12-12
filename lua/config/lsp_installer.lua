@@ -1,3 +1,5 @@
+local lsp_utils = require 'lspconfig.util'
+
 local M = {}
 
 M.setup = function()
@@ -163,6 +165,7 @@ M.setup = function()
     'sqlls',
     'prismals',
     'vimls',
+    'eslint',
   }
 
   for _, server in ipairs(ensure_installed) do
@@ -204,18 +207,13 @@ M.setup = function()
     end
 
     if server.name == 'tsserver' then
+      opts.init_options = require('nvim-lsp-ts-utils').init_options
       opts.on_attach = function(client, bufnr)
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
         local ts_utils = require 'nvim-lsp-ts-utils'
 
-        ts_utils.setup {
-          eslint_bin = 'eslint_d',
-          eslint_enable_diagnostics = true,
-          eslint_enable_code_actions = true,
-          enable_formatting = true,
-          formatter = 'prettierd',
-        }
+        ts_utils.setup {}
 
         ts_utils.setup_client(client)
         buf_map(bufnr, 'n', 'gs', ':TSLspOrganize<CR>')
@@ -223,6 +221,20 @@ M.setup = function()
         buf_map(bufnr, 'n', 'go', ':TSLspImportAll<CR>')
         on_attach(client, bufnr)
       end
+
+      opts.root_dir = function(fname)
+        return lsp_utils.root_pattern 'tsconfig.json'(fname)
+          or lsp_utils.root_pattern(
+            'package.json',
+            'jsconfig.json',
+            '.git'
+          )(fname)
+          or lsp_utils.path.dirname(fname)
+      end
+    end
+
+    if server.name == 'angularls' then
+      opts.filetypes = { 'html' }
     end
 
     -- (optional) Customize the options passed to the server

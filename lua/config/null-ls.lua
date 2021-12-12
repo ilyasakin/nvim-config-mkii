@@ -2,8 +2,8 @@ local M = {}
 
 M.setup = function()
   local null_ls = require 'null-ls'
-  local diagnostics = null_ls.builtins.diagnostics
   local formatting = null_ls.builtins.formatting
+  local diagnostics = null_ls.builtins.diagnostics
 
   vim.env.PRETTIERD_DEFAULT_CONFIG = vim.fn.stdpath 'config'
     .. '/lua/config/.prettierrc.json'
