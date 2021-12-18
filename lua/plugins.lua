@@ -142,7 +142,13 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use { 'akinsho/toggleterm.nvim' }
+  use {
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require('config.toggleterm').setup()
+      require('config.toggleterm').post()
+    end,
+  }
 
   use {
     'tveskag/nvim-blame-line',
