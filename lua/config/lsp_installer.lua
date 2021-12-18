@@ -190,6 +190,9 @@ M.setup = function()
     if server.name == 'sumneko_lua' then
       opts.settings = {
         Lua = {
+          completion = {
+            showWord = 'Disable',
+          },
           diagnostics = {
             -- Get the language server to recognize the `vim` global
             globals = { 'vim' },
