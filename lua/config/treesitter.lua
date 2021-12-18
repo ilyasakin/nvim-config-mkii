@@ -38,6 +38,7 @@ M.setup = function()
       'vue',
       'yaml',
       'prisma',
+      'markdown',
     },
   }
 end
