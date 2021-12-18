@@ -36,6 +36,10 @@ M.post = function()
     },
   }
 
+  vim.g.dashboard_custom_footer = {
+    'MKII',
+  }
+
   nnoremap {
     '<Leader>fn',
     '<cmd>DashboardNewFile<CR>',
