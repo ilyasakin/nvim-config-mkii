@@ -45,6 +45,7 @@ M.setup = function()
     sources = {
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
+      { name = 'path' },
     },
   }
 end
