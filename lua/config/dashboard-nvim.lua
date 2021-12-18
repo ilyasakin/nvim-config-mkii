@@ -30,6 +30,10 @@ M.post = function()
       description = { '  Find File                      SPC f f' },
       command = 'Telescope find_files',
     },
+    c = {
+      description = { '  Sync Plugins                          ' },
+      command = 'PackerSync',
+    },
   }
 
   nnoremap {
