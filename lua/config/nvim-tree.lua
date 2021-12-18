@@ -10,19 +10,22 @@ M.post = function()
 
   local view = require 'nvim-tree.view'
   local timer = vim.loop.new_timer()
-  local refresh_tree = require('nvim-tree.lib').refresh_tree
+
+  local refresh_tree = function()
+    if view.win_open() == false then
+      return
+    end
+
+    require('nvim-tree.lib').refresh_tree()
+  end
+
+  local REFRESH_INTERVAL = 1000
 
   require('nvim-tree.events').on_nvim_tree_ready(function()
     timer:start(
-      1000,
-      1000,
-      vim.schedule_wrap(function()
-        if view.win_open() == false then
-          return
-        end
-
-        refresh_tree()
-      end)
+      REFRESH_INTERVAL,
+      REFRESH_INTERVAL,
+      vim.schedule_wrap(refresh_tree)
     )
   end)
 end
@@ -46,7 +49,7 @@ M.setup = function()
       },
       auto_close = true,
       open_on_tab = false,
-      hijack_cursor = false,
+      hijack_cursor = true,
       update_cwd = false,
       diagnostics = {
         enable = true,
