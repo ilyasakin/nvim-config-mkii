@@ -21,7 +21,8 @@ return require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     config = function()
-      require('config.lsp').post()
+      local lsp = require 'config.lsp'
+      lsp.post()
     end,
   }
 
@@ -29,7 +30,8 @@ return require('packer').startup(function(use)
     'williamboman/nvim-lsp-installer',
     after = 'nvim-lspconfig',
     config = function()
-      require('config.lsp_installer').setup()
+      local lsp_installer = require 'config.lsp_installer'
+      lsp_installer.setup()
     end,
   }
 
@@ -44,7 +46,8 @@ return require('packer').startup(function(use)
       'onsails/lspkind-nvim',
     },
     config = function()
-      require('config.cmp').setup()
+      local cmp = require 'config.cmp'
+      cmp.setup()
     end,
   }
 
@@ -52,7 +55,8 @@ return require('packer').startup(function(use)
     'glepnir/lspsaga.nvim',
     after = 'nvim-lspconfig',
     config = function()
-      require('config.lspsaga').post()
+      local lspsaga = require 'config.lspsaga'
+      lspsaga.post()
     end,
   }
 
@@ -60,8 +64,9 @@ return require('packer').startup(function(use)
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require('config.nvim-tree').setup()
-      require('config.nvim-tree').post()
+      local nvim_tree = require 'config.nvim-tree'
+      nvim_tree.setup()
+      nvim_tree.post()
     end,
   }
 
@@ -69,7 +74,8 @@ return require('packer').startup(function(use)
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require('config.bufferline').setup()
+      local bufferline = require 'config.bufferline'
+      bufferline.setup()
     end,
   }
 
@@ -77,7 +83,8 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-      require('config.lualine').setup()
+      local lualine = require 'config.lualine'
+      lualine.setup()
     end,
   }
 
@@ -86,7 +93,8 @@ return require('packer').startup(function(use)
   use {
     'svermeulen/vim-cutlass',
     config = function()
-      require('config.cutlass').post()
+      local cutlass = require 'config.cutlass'
+      cutlass.post()
     end,
   }
 
@@ -95,7 +103,8 @@ return require('packer').startup(function(use)
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
-      require('config.indentline').post()
+      local indentline = require 'config.indentline'
+      indentline.post()
     end,
   }
 
@@ -104,8 +113,9 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function()
-      require('config.treesitter').setup()
-      require('config.treesitter').post()
+      local treesitter = require 'config.treesitter'
+      treesitter.setup()
+      treesitter.post()
     end,
     run = ':TSUpdate',
   }
@@ -114,7 +124,8 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
     config = function()
-      require('config.telescope').post()
+      local telescope = require 'config.telescope'
+      telescope.post()
     end,
   }
 
@@ -122,7 +133,8 @@ return require('packer').startup(function(use)
     'jose-elias-alvarez/null-ls.nvim',
     after = 'nvim-cmp',
     config = function()
-      require('config.null-ls').setup()
+      local null_ls = require 'config.null-ls'
+      null_ls.setup()
     end,
     requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
   }
@@ -135,16 +147,18 @@ return require('packer').startup(function(use)
   use {
     'folke/which-key.nvim',
     config = function()
-      require('config.which-key').setup()
-      require('config.which-key').post()
+      local which_key = require 'config.which-key'
+      which_key.setup()
+      which_key.post()
     end,
   }
 
   use {
     'akinsho/toggleterm.nvim',
     config = function()
-      require('config.toggleterm').setup()
-      require('config.toggleterm').post()
+      local toggleterm = require 'config.toggleterm'
+      toggleterm.setup()
+      toggleterm.post()
     end,
   }
 
@@ -160,7 +174,8 @@ return require('packer').startup(function(use)
   use {
     'glepnir/dashboard-nvim',
     config = function()
-      require('config.dashboard-nvim').post()
+      local dashboard = require 'config.dashboard-nvim'
+      dashboard.post()
     end,
   }
 
