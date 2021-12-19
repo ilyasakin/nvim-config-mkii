@@ -36,17 +36,17 @@ return require('packer').startup(function(use)
   use {
     'hrsh7th/nvim-cmp',
     after = 'nvim-lspconfig',
-    requires = 'hrsh7th/cmp-path',
+    requires = {
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp',
+      'saadparwaiz1/cmp_luasnip',
+      'L3MON4D3/LuaSnip',
+      'onsails/lspkind-nvim',
+    },
     config = function()
       require('config.cmp').setup()
     end,
   }
-
-  use 'hrsh7th/cmp-nvim-lsp'
-
-  use 'saadparwaiz1/cmp_luasnip'
-
-  use 'L3MON4D3/LuaSnip'
 
   use {
     'glepnir/lspsaga.nvim',

@@ -1,12 +1,17 @@
 local M = {}
 
 M.setup = function()
-  -- luasnip setup
-  local luasnip = require 'luasnip'
-
   -- nvim-cmp setup
   local cmp = require 'cmp'
+
+  -- luasnip setup
+  local luasnip = require 'luasnip'
+  local lspkind = require 'lspkind'
+
   cmp.setup {
+    formatting = {
+      format = lspkind.cmp_format(),
+    },
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
