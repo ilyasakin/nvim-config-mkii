@@ -13,135 +13,85 @@ M.setup = function()
   end
 
   local on_attach = function(_, bufnr)
+    local wk = require 'which-key'
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    local options = { noremap = true, silent = true }
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      'gD',
-      '<cmd>lua vim.lsp.buf.declaration()<CR>',
-      options
+    wk.register({
+      g = {
+        D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Go to declaration' },
+      },
+    }, { buffer = bufnr, noremap = true })
+
+    wk.register({
+      g = {
+        d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Go to definition' },
+      },
+    }, { buffer = bufnr, noremap = true })
+
+    wk.register({
+      K = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover' },
+    }, { buffer = bufnr, noremap = true })
+
+    wk.register({
+      b = {
+        R = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename' },
+      },
+    }, { buffer = bufnr, noremap = true, prefix = '<leader>' })
+
+    wk.register(
+      {
+        b = {
+          r = { '<cmd>lua vim.lsp.buf.references()<CR>', 'References' },
+        },
+      },
+      { buffer = bufnr, noremap = true, prefix = '<leader>' }
     )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      'gd',
-      '<cmd>lua vim.lsp.buf.definition()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      'K',
-      '<cmd>lua vim.lsp.buf.hover()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      'gi',
-      '<cmd>lua vim.lsp.buf.implementation()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '<C-k>',
-      '<cmd>lua vim.lsp.buf.signature_help()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '<leader>wa',
-      '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '<leader>wr',
-      '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '<leader>D',
-      '<cmd>lua vim.lsp.buf.type_definition()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '<leader>rn',
-      '<cmd>lua vim.lsp.buf.rename()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      'gr',
-      '<cmd>lua vim.lsp.buf.references()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '<leader>ca',
-      '<cmd>lua vim.lsp.buf.code_action()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'v',
-      '<leader>ca',
-      '<cmd>lua vim.lsp.buf.range_code_action()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '<leader>e',
-      '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '[d',
-      '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      ']d',
-      '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '<leader>q',
-      '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'n',
-      '<leader>so',
-      [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]],
-      options
-    )
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      'v',
-      'f',
-      [[<cmd>lua vim.lsp.buf.range_formatting()<CR>]],
-      options
-    )
+
+    wk.register({
+      c = {
+        a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
+      },
+    }, { buffer = bufnr, noremap = true, prefix = '<leader>' })
+
+    wk.register({
+      c = {
+        a = {
+          '<cmd>lua vim.lsp.buf.range_code_action()<CR>',
+          'Range Code Action',
+        },
+      },
+    }, { mode = 'v', buffer = bufnr, noremap = true, prefix = '<leader>' })
+
+    wk.register({
+      ['['] = {
+        d = {
+          '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',
+          'Go to previous diagnostic',
+        },
+      },
+    }, { buffer = bufnr, noremap = true })
+
+    wk.register({
+      [']'] = {
+        d = {
+          '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',
+          'Go to next diagnostic',
+        },
+      },
+    }, { buffer = bufnr, noremap = true })
+
+    wk.register({
+      f = {
+        f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format' },
+      },
+    }, { buffer = bufnr, noremap = true })
+
+    wk.register({
+      f = {
+        f = { '<cmd>lua vim.lsp.buf.range_formatting()<CR>', 'Range Format' },
+      },
+    }, { mode = 'v', buffer = bufnr, noremap = true })
+
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
   end
 
