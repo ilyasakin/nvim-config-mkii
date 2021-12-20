@@ -3,6 +3,7 @@ local exec = vim.api.nvim_command
 vim.cmd [[
   nnoremap <SPACE> <Nop>
   let mapleader = "\<Space>"
+  au FocusGained,BufEnter * :checktime
 ]]
 
 vim.o.encoding = 'utf-8'
@@ -18,8 +19,7 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.completeopt = 'menuone,noselect'
-vim.opt.splitbelow = true;
-
+vim.opt.splitbelow = true
 
 exec 'tnoremap <A-h> <C-\\><C-n><C-w>h'
 exec 'tnoremap <A-j> <C-\\><C-n><C-w>j'
