@@ -179,6 +179,23 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    'mfussenegger/nvim-dap',
+    config = function()
+      local dap = require 'config.dap'
+      dap.post()
+    end,
+  }
+
+  use {
+    'Pocco81/DAPInstall.nvim',
+    requires = 'mfussenegger/nvim-dap',
+    config = function()
+      local dap_install = require 'config.dap_install'
+      dap_install.setup()
+    end,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end

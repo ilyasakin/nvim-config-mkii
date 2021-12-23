@@ -33,13 +33,13 @@ M.setup = function()
     }, { buffer = bufnr, noremap = true })
 
     wk.register({
-      b = {
+      c = {
         R = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename [LSP]' },
       },
     }, { buffer = bufnr, noremap = true, prefix = '<leader>' })
 
     wk.register({
-      b = {
+      c = {
         r = { '<cmd>lua vim.lsp.buf.references()<CR>', 'References [LSP]' },
       },
     }, { buffer = bufnr, noremap = true, prefix = '<leader>' })
