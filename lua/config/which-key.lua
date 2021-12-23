@@ -12,7 +12,8 @@ M.post = function()
     f = { name = 'file', t = 'File Tree' },
     e = { name = 'editor' },
     h = { name = 'git hunk' },
-    c = { name = 'code actions', a = 'get code actions' },
+    c = { name = 'code actions' },
+    d = { name = 'debug', a = { name = 'attach' } },
   }, { prefix = '<leader>' })
 
   which_key.register({
