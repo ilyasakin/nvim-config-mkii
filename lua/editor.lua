@@ -4,6 +4,8 @@ vim.cmd [[
   nnoremap <SPACE> <Nop>
   let mapleader = "\<Space>"
   au FocusGained,BufEnter * :checktime
+
+  command! BufOnly execute '%bdelete|edit #|normal `"'
 ]]
 
 vim.o.encoding = 'utf-8'
