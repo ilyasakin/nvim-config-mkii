@@ -210,6 +210,19 @@ return require('packer').startup {
       end,
     }
 
+    use {
+      'AckslD/nvim-neoclip.lua',
+      requires = {
+        { 'tami5/sqlite.lua', module = 'sqlite' },
+        { 'nvim-telescope/telescope.nvim' },
+      },
+      config = function()
+        local neoclip = require 'config.neoclip'
+        neoclip.setup()
+        neoclip.post()
+      end,
+    }
+
     if packer_bootstrap then
       require('packer').sync()
     end
