@@ -15,11 +15,35 @@ end
 
 return require('packer').startup {
   function(use)
-    use 'wbthomason/packer.nvim'
+    use { 'wbthomason/packer.nvim' }
 
     use { 'tjdevries/astronauta.nvim' }
 
-    use 'dstein64/nvim-scrollview'
+    use { 'dstein64/nvim-scrollview' }
+
+    use {
+      'windwp/nvim-ts-autotag',
+      after = 'nvim-treesitter',
+      config = function()
+        require('nvim-ts-autotag').setup()
+      end,
+    }
+
+    use { 'p00f/nvim-ts-rainbow' }
+
+    use {
+      'nacro90/numb.nvim',
+      config = function()
+        require('numb').setup {}
+      end,
+    }
+
+    use {
+      'kosayoda/nvim-lightbulb',
+      config = function()
+        vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+      end,
+    }
 
     use {
       'NTBBloodbath/doom-one.nvim',
@@ -154,7 +178,12 @@ return require('packer').startup {
       end,
     }
 
-    use 'jiangmiao/auto-pairs'
+    use {
+      'windwp/nvim-autopairs',
+      config = function()
+        require('nvim-autopairs').setup {}
+      end,
+    }
 
     use {
       'nvim-treesitter/nvim-treesitter',

@@ -6,6 +6,11 @@ M.setup = function()
       enable = true,
       disable = { 'css', 'scss' },
     },
+    rainbow = {
+      enable = true,
+      extended_mode = true,
+      max_file_lines = nil,
+    },
     indent = {
       enable = false,
       disable = {},
