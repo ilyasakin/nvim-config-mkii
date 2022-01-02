@@ -34,6 +34,10 @@ M.post = function()
       description = { '  Sync Plugins                          ' },
       command = 'PackerSync',
     },
+    d = {
+      description = { '  Compile Plugins                       ' },
+      command = 'PackerCompile',
+    },
   }
 
   vim.g.dashboard_custom_footer = {
