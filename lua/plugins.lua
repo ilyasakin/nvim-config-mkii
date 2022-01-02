@@ -19,6 +19,41 @@ return require('packer').startup {
 
     use { 'tjdevries/astronauta.nvim' }
 
+    use 'dstein64/nvim-scrollview'
+
+    use {
+      'NTBBloodbath/doom-one.nvim',
+      config = function()
+        require('doom-one').setup {
+          cursor_coloring = false,
+          terminal_colors = false,
+          italic_comments = false,
+          enable_treesitter = true,
+          transparent_background = false,
+          pumblend = {
+            enable = true,
+            transparency_amount = 20,
+          },
+          plugins_integrations = {
+            neorg = false,
+            barbar = false,
+            bufferline = true,
+            gitgutter = false,
+            gitsigns = true,
+            telescope = true,
+            neogit = true,
+            nvim_tree = false,
+            dashboard = true,
+            startify = false,
+            whichkey = true,
+            indent_blankline = true,
+            vim_illuminate = false,
+            lspsaga = true,
+          },
+        }
+      end,
+    }
+
     use {
       'neovim/nvim-lspconfig',
       config = function()
@@ -75,16 +110,6 @@ return require('packer').startup {
       end,
     }
 
-    --  use {
-    --    'kyazdani42/nvim-tree.lua',
-    --    requires = 'kyazdani42/nvim-web-devicons',
-    --    config = function()
-    --      local nvim_tree = require 'config.nvim-tree'
-    --      nvim_tree.setup()
-    --      nvim_tree.post()
-    --    end,
-    --  }
-
     use {
       'akinsho/bufferline.nvim',
       requires = 'kyazdani42/nvim-web-devicons',
@@ -103,8 +128,6 @@ return require('packer').startup {
       end,
     }
 
-    use 'dracula/vim'
-
     use {
       'svermeulen/vim-cutlass',
       config = function()
@@ -113,7 +136,15 @@ return require('packer').startup {
       end,
     }
 
-    use 'airblade/vim-gitgutter'
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+      },
+      config = function()
+        require('gitsigns').setup()
+      end,
+    }
 
     use {
       'lukas-reineke/indent-blankline.nvim',
