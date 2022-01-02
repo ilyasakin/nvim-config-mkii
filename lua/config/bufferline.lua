@@ -7,7 +7,7 @@ M.setup = function()
       diagnostics = 'nvim_lsp',
       offsets = {
         {
-          filetype = 'NvimTree',
+          filetype = 'CHADTree',
           text = 'File Explorer',
           highlight = 'Directory',
           text_align = 'left',
