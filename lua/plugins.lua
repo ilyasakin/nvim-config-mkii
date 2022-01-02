@@ -200,6 +200,7 @@ return require('packer').startup {
       requires = { { 'nvim-lua/plenary.nvim' } },
       config = function()
         local telescope = require 'config.telescope'
+        telescope.setup()
         telescope.post()
       end,
     }
