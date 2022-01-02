@@ -37,6 +37,15 @@ return require('packer').startup {
     }
 
     use {
+      'ms-jpq/chadtree',
+      branch = 'chad',
+      config = function()
+        local chadtree = require 'config.chadtree'
+        chadtree.setup()
+      end,
+    }
+
+    use {
       'ms-jpq/coq_nvim',
       branch = 'coq',
       config = function()
@@ -66,15 +75,15 @@ return require('packer').startup {
       end,
     }
 
-    use {
-      'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons',
-      config = function()
-        local nvim_tree = require 'config.nvim-tree'
-        nvim_tree.setup()
-        nvim_tree.post()
-      end,
-    }
+    --  use {
+    --    'kyazdani42/nvim-tree.lua',
+    --    requires = 'kyazdani42/nvim-web-devicons',
+    --    config = function()
+    --      local nvim_tree = require 'config.nvim-tree'
+    --      nvim_tree.setup()
+    --      nvim_tree.post()
+    --    end,
+    --  }
 
     use {
       'akinsho/bufferline.nvim',

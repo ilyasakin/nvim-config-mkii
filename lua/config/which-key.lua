@@ -9,7 +9,7 @@ end
 M.post = function()
   which_key.register({
     b = { name = 'buffer' },
-    f = { name = 'file', t = 'File Tree' },
+    f = { name = 'file' },
     e = { name = 'editor' },
     h = { name = 'git hunk' },
     c = { name = 'code actions' },
