@@ -1,4 +1,4 @@
-vim.cmd [[runtime plugin/astronauta.vim]]
+vim.cmd 'runtime plugin/astronauta.vim'
 
 require 'editor'
 require 'plugins'

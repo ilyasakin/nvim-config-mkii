@@ -37,19 +37,24 @@ return require('packer').startup {
     }
 
     use {
-      'hrsh7th/nvim-cmp',
-      after = 'nvim-lspconfig',
-      requires = {
-        'hrsh7th/cmp-path',
-        'hrsh7th/cmp-nvim-lsp',
-        'saadparwaiz1/cmp_luasnip',
-        'L3MON4D3/LuaSnip',
-        'onsails/lspkind-nvim',
-      },
+      'ms-jpq/coq_nvim',
+      branch = 'coq',
       config = function()
-        local cmp = require 'config.cmp'
-        cmp.setup()
+        local coq = require 'config.coq'
+        coq.setup()
       end,
+    }
+
+    use {
+      'ms-jpq/coq.artifacts',
+      branch = 'artifacts',
+      after = 'coq_nvim',
+    }
+
+    use {
+      'ms-jpq/coq.thirdparty',
+      branch = '3p',
+      after = 'coq_nvim',
     }
 
     use {
@@ -132,7 +137,6 @@ return require('packer').startup {
 
     use {
       'jose-elias-alvarez/null-ls.nvim',
-      after = 'nvim-cmp',
       config = function()
         local null_ls = require 'config.null-ls'
         null_ls.setup()

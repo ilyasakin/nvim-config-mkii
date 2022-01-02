@@ -1,4 +1,5 @@
 local lsp_utils = require 'lspconfig.util'
+local coq = require 'coq'
 
 local M = {}
 
@@ -127,7 +128,7 @@ M.setup = function()
   lsp_installer.on_server_ready(function(server)
     -- nvim-cmp supports additional completion capabilities
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+    -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
     local opts = {
       on_attach = on_attach,
@@ -194,7 +195,7 @@ M.setup = function()
 
     -- This setup() function is exactly the same as lspconfig's setup function.
     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/ADVANCED_README.md
-    server:setup(opts)
+    server:setup(coq.lsp_ensure_capabilities(opts))
   end)
 end
 
