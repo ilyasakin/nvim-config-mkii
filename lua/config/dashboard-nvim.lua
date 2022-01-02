@@ -35,7 +35,7 @@ M.post = function()
       command = 'PackerSync',
     },
     d = {
-      description = { '  Compile Plugins                       ' },
+      description = { '  Compile Plugins                       ' },
       command = 'PackerCompile',
     },
   }
