@@ -1,6 +1,7 @@
 local M = {}
 
 M.post = function()
+  local which_key = require 'which-key'
   local nnoremap = vim.keymap.nnoremap
 
   vim.g.dashboard_default_executive = 'telescope'
@@ -27,8 +28,8 @@ M.post = function()
       command = 'DashboardNewFile',
     },
     b = {
-      description = { '  Find File                      SPC f f' },
-      command = 'Telescope find_files',
+      description = { '  Find File                      SPC f d' },
+      command = 'Telescope git_files',
     },
     c = {
       description = { '  Sync Plugins                          ' },
@@ -44,11 +45,10 @@ M.post = function()
     'MKII',
   }
 
-  nnoremap {
-    '<Leader>fn',
-    '<cmd>DashboardNewFile<CR>',
-    { silent = true },
-  }
+  which_key.register(
+    { f = { n = { '<cmd>DashboardNewFile<CR>', 'New File' } } },
+    { prefix = '<leader>' }
+  )
 end
 
 return M

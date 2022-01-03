@@ -206,6 +206,14 @@ return require('packer').startup {
     }
 
     use {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      config = function()
+        require('telescope').load_extension 'fzf'
+      end,
+      run = 'make',
+    }
+
+    use {
       'jose-elias-alvarez/null-ls.nvim',
       config = function()
         local null_ls = require 'config.null-ls'

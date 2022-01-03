@@ -5,18 +5,23 @@ M.setup = function()
     defaults = {
       file_ignore_patterns = { 'node_modules', 'dist' },
     },
+    extensions = {
+      fzf = {
+        fuzzy = true,
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = 'smart_case',
+      },
+    },
   }
 end
 M.post = function()
-  -- vim.api.nvim_set_keymap('n', '<Leader>ff', [[<cmd> lua require('telescope_builtin').find_files()<CR>]], { noremap = true })
+  local which_key = require 'which-key'
 
-  local nnoremap = vim.keymap.nnoremap
-
-  nnoremap {
-    '<C-p>',
-    require('telescope.builtin').find_files,
-    { silent = true },
-  }
+  which_key.register(
+    { f = { d = { '<cmd>Telescope git_files<cr>', 'Find Documents' } } },
+    { prefix = '<leader>' }
+  )
 end
 
 return M
