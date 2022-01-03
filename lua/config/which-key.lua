@@ -17,6 +17,12 @@ M.post = function()
   }, { prefix = '<leader>' })
 
   which_key.register({
+    h = { name = 'git hunk' },
+    c = { name = 'code actions' },
+    f = { name = 'file' },
+  }, { mode = 'v', prefix = '<leader>' })
+
+  which_key.register({
     b = {
       p = { '<cmd>bp<CR>', 'Previous Buffer' },
       n = { '<cmd>bn<CR>', 'Next Buffer' },

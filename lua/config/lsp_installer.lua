@@ -82,13 +82,13 @@ M.setup = function()
       f = {
         f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format' },
       },
-    }, { buffer = bufnr, noremap = true })
+    }, { buffer = bufnr, noremap = true, prefix = '<leader>' })
 
     wk.register({
       f = {
         f = { '<cmd>lua vim.lsp.buf.range_formatting()<CR>', 'Range Format' },
       },
-    }, { mode = 'v', buffer = bufnr, noremap = true })
+    }, { mode = 'v', buffer = bufnr, noremap = true, prefix = '<leader>' })
 
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
   end
