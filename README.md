@@ -3,7 +3,7 @@
 - Goals
   - Don't replace any default vim keybindings.
   - Shortcuts should leader key centric.
-  - Make as many quality of life improvements as possible. Such as auto refreshing of the tree etc.
+  - Make as many quality of life improvements as possible.
 
 ## LICENSE
 
