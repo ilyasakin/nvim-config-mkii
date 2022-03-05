@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   local neoclip = require 'neoclip'
   neoclip.setup {
-    enable_persistant_history = true,
+    enable_persistent_history = true,
   }
 end
 
